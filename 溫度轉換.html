@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>溫度轉換</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <div class="container">
+        <div class="row">
+            <div class="offset-3"></div>
+            <div class="col-5 text-center">
+                <div class="form-check">
+                    <div class="input-group input-group-sm ">
+                        <h5 class="text-center">請選擇轉換方式:</h5>
+                        <input type="radio" name="name" id="unitCF" class="ml-3 mt-2">攝氏轉華氏
+                        <input type="radio" name="name" id="unitFC" class="ml-3 mt-2">華氏轉攝氏
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="offset-3"></div>
+            <div class="col-2">
+                <button id="bnum" type="button" class="btn btn-block ml-5" style="width:60%;">1</button>
+            </div>
+            <div class="col-2 text-center">
+                <button id="bnum" type="button" class="btn btn-block ml-4" style="width:60%;">2</button>
+            </div>
+            <div class="col-2">
+                <button id="bnum" type="button" class="btn btn-block " style="width:60%;">3</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="offset-3"></div>
+            <div class="col-2">
+                <button id="bnum" type="button" class="btn btn-block ml-5" style="width:60%;">4</button>
+            </div>
+            <div class="col-2 text-center">
+                <button id="bnum" type="button" class="btn btn-block ml-4" style="width:60%;">5</button>
+            </div>
+            <div class="col-2">
+                <button id="bnum" type="button" class="btn btn-block " style="width:60%;">6</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="offset-3"></div>
+            <div class="col-2">
+                <button id="bnum" type="button" class="btn btn-block ml-5" style="width:60%;">7</button>
+            </div>
+            <div class="col-2 text-center">
+                <button id="bnum" type="button" class="btn btn-block ml-4" style="width:60%;">8</button>
+            </div>
+            <div class="col-2">
+                <button id="bnum" type="button" class="btn btn-block " style="width:60%;">9</button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="offset-3"></div>
+            <div class="col-2">
+                <button id="bnum" type="button" class="btn btn-block ml-5" style="width:60%;">0</button>
+            </div>
+            <div class="col-2 text-center">
+                <button id="bnum" type="button" class="btn btn-block ml-4" style="width:60%;">.</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-3"></div>
+            <div class="col-4 ml-5 mt-4">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">請輸入文字</div>
+                    </div>
+                    <input type="text" class="form-control" id="txtInput" placeholder="0">
+                </div>
+            </div>
+            <div class="col-2 mt-4 text-right">
+                <button type="button" class="btn btn-primary" id="cmdConvert">確定</button>
+            </div>
+            <div class="col-2 mt-4">
+                <button type="button" class="btn btn-danger" id="cmdClear">清除</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-3"></div>
+            <div class="col-4 ml-5 mt-4">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">結果</div>
+                    </div>
+                    <input type="text" class="form-control" id="txtOutput" placeholder="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll("button[id=bnum]").forEach(element => {
+            element.onclick = function () {
+                document.getElementById("txtInput").value = document.getElementById("txtInput").value + element.innerText;
+                // if ((element.innerText >= 0 && document.getElementById("txtInput").value == "")
+                //     || (element.innerText >= 0 && document.getElementById("txtInput").value > 0)) {
+                //     document.getElementById("txtInput").value = document.getElementById("txtInput").value + element.innerText;
+                // } else if ((isNaN(element.innerText) && document.getElementById("txtInput").value >= 0)
+                //     || (isNaN(element.innerText) && document.getElementById("txtInput").value < 0)) {
+                //     document.getElementById("txtInput").value = document.getElementById("txtInput").value + element.innerText;
+                // }
+            }
+        });
+
+        document.getElementById("cmdClear").onclick = function () {
+            document.getElementById("txtOutput").value = "";
+            document.getElementById("txtInput").value = "";
+        }
+
+        document.getElementById("cmdConvert").onclick = function () {
+            if (document.getElementById("unitCF").checked) {
+                document.getElementById("txtOutput").value = (parseInt(document.getElementById("txtInput").value, 10) * 1.8 + 32).toFixed(2);
+            } else if (document.getElementById("unitFC").checked) {
+                document.getElementById("txtOutput").value = ((parseInt(document.getElementById("txtInput").value, 10) - 32) / 1.8).toFixed(2);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
